@@ -1,0 +1,9 @@
+aiohttp[speedups]
+
+# Testing
+pytest
+pytest-cov
+pytest-asyncio
+pytest-aiohttp
+black
+isort
