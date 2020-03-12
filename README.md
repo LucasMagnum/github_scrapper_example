@@ -14,6 +14,7 @@ Responsible for consuming downloading and saving Github Repo and User data.
 
 ## Quick Start
 
+0. Create a virtualenv and activate it, this project was created using Python 3.8
 1. Clone this project
 2. Install all the dependencies with `make install`
     * This command will install and the dependencies and initialize the database
