@@ -16,7 +16,7 @@ Responsible for consuming downloading and saving Github Repo and User data.
 1. Clone this project
 2. Install all the dependencies with `make install`
     * This command will install and the dependencies and initialize the database
-3. Start the project with `make start`
+3. Start the API with `make start-api` or the Scrapper with `make start-scrapper`
 4. Open `http://localhost:8002/` in your browser
 5. Open `http://localhost:8002/users/_search` to search users
     * Search by `name`. Ex: `http://localhost:8002/users/_search?name=Lucas`
