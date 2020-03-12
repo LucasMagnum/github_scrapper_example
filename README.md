@@ -1,4 +1,5 @@
-# Github Scrapper Data - Example
+# Github Scrapper Data
+![CI](https://github.com/LucasMagnum/github_scrapper_example/workflows/CI/badge.svg)
 
 This is an example application used to consume Github API.
 This project is splitted up in 2 components: API and Scrapper.
