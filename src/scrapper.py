@@ -24,7 +24,6 @@ async def scrap_github(repository: Repository, user: User):
                 external_id=repo["owner"]["id"], name=repo["owner"]["login"]
             )
 
-            # Extract language from
             languages = await fetch_data(repo["languages_url"], session)
             languages = ", ".join(languages)
 
@@ -38,6 +37,7 @@ async def scrap_github(repository: Repository, user: User):
     # Waiting a bit to avoid too much requests
     print("Waiting 1 second before next request")
     await asyncio.sleep(1)
+    scrap_github(repository, user)
 
 
 async def fetch_data(url, session):
