@@ -1,0 +1,20 @@
+version: "3.6"
+
+services:
+  api:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    volumes:
+      - .:/app
+    ports:
+      - 8002:8002
+    command: python src/api.py
+
+  scrapper:
+      build:
+        context: .
+        dockerfile: ./Dockerfile
+      volumes:
+        - .:/app
+      command: python src/scrapper.py

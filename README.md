@@ -14,10 +14,10 @@ Responsible for consuming downloading and saving Github Repo and User data.
 
 ## Quick Start
 
-0. Create a virtualenv and activate it, this project was created using Python 3.8
+0. Install `docker` and `docker-compose`
 1. Clone this project
-2. Install all the dependencies with `make install`
-    * This command will install and the dependencies and initialize the database
+2. Run `make install`
+    * This command will build the images and initialize the database
 3. Start the API with `make start-api` or the Scrapper with `make start-scrapper`
 4. Open `http://localhost:8002/` in your browser
 5. Open `http://localhost:8002/users/_search` to search users

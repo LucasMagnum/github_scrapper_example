@@ -1,21 +1,21 @@
 start-api:
 	echo "Starting the application"
-	python src/api.py
+	@docker-compose run --service-ports api
 
 start-scrapper:
 	echo "Starting scrapper"
-	python src/scrapper.py
+	@docker-compose run scrapper
 
 install:
 	echo "Installing everything needed"
-	pip install -r requirements.txt
+	docker-compose build
 
 	echo "Setting up the database"
-	python scripts/init_db.py
+	docker-compose run api python scripts/init_db.py
 
 test:
-	py.test -vsx src/ --cov src/
+	docker-compose run api py.test -vsx src/ --cov src/
 
 lint:
-	isort -rc .
-	black . --exclude .ipython --exclude __pycache__
+	docker-compose run api isort -rc .
+	docker-compose run api black . --exclude .ipython --exclude __pycache__
