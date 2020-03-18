@@ -30,7 +30,7 @@ Responsible for consuming downloading and saving Github Repo and User data.
 
 ## Improvements points
 * Better management of connections with SQLAlchemy / Better async configuration for database queries
-* Use postgres / docker
+* Use postgres
 * Add contract tests to the API
 * Add tests to the Scrapper
 * Use ElasticSearch as a database and enable a better search query system
