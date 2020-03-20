@@ -1,6 +1,6 @@
 import asyncio
 
-from aiohttp import ClientSession
+from aiohttp import BasicAuth, ClientSession
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
@@ -13,10 +13,11 @@ async def scrap_github(repository: Repository, user: User):
     print("Collecting data...")
     latest_repo = await repository.get_latest_by_external_id()
 
-    since = latest_repo["id"] if latest_repo else 0
+    since = latest_repo["external_id"] if latest_repo else 0
     url = config.GITHUB_API_URL.format(since=since)
 
-    async with ClientSession() as session:
+    basic_auth = BasicAuth(config.GITHUB_USERNAME, config.GITHUB_TOKEN)
+    async with ClientSession(auth=basic_auth) as session:
         response = await fetch_data(url, session)
 
         for repo in response:
@@ -37,12 +38,12 @@ async def scrap_github(repository: Repository, user: User):
     # Waiting a bit to avoid too much requests
     print("Waiting 1 second before next request")
     await asyncio.sleep(1)
-    scrap_github(repository, user)
+    await scrap_github(repository, user)
 
 
 async def fetch_data(url, session):
     async with session.get(url) as response:
-        if response.status == 403:
+        if response.status == 403 or response.status == 401:
             raise ValueError("API limit exceeded")
         return await response.json()
 

@@ -15,6 +15,9 @@ services:
       build:
         context: .
         dockerfile: ./Dockerfile
+      environment: 
+        - GITHUB_USERNAME=""
+        - GITHUB_TOKEN=""
       volumes:
         - .:/app
       command: python src/scrapper.py

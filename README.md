@@ -18,11 +18,13 @@ Responsible for consuming downloading and saving Github Repo and User data.
 1. Clone this project
 2. Run `make install`
     * This command will build the images and initialize the database
-3. Start the API with `make start-api` or the Scrapper with `make start-scrapper`
-4. Open `http://localhost:8002/` in your browser
-5. Open `http://localhost:8002/users/_search` to search users
+3. Set `GITHUB_USERNAME` and `GITHUB_TOKEN` variables in the `docker-compose.yml` file
+    * See this link to create a token: https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line
+4. Start the API with `make start-api` or the Scrapper with `make start-scrapper`
+5. Open `http://localhost:8002/` in your browser
+6. Open `http://localhost:8002/users/_search` to search users
     * Search by `name`. Ex: `http://localhost:8002/users/_search?name=Lucas`
-6. Open `http://localhost:8002/repositories/_search` to search users
+7. Open `http://localhost:8002/repositories/_search` to search users
     * Search by `name`. Ex: `http://localhost:8002/repositories/_search?name=Git`
     * Search by `languages`. Ex: `http://localhost:8002/repositories/_search?languages=Python`
     * Search by `author`. Ex: `http://localhost:8002/repositories/_search?author=Lucas`
